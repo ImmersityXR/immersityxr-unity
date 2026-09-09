@@ -1,3 +1,5 @@
+'esversion: 5';
+
 var MemoryStatsPlugin = {
 
 	GetTotalMemorySize: function() {

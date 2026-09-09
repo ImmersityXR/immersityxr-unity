@@ -1,7 +1,6 @@
-﻿ mergeInto(LibraryManager.library, {
+﻿'esversion: 5';
 
-
-
+mergeInto(LibraryManager.library, {
      ConnectToWebRTC: function(clientName) {
           
           console.log(clientName + " is connecting to WebRTC.");
@@ -55,7 +54,7 @@
 
         // Your logic to change the video device in WebRTC
         console.log("Changing video device to: ", UTF8ToString(deviceId));
-        fetchUserMedia(null, UTF8ToString(deviceId))
+        fetchUserMedia(null, UTF8ToString(deviceId));
         // Example: updateWebRTCVideoDevice(deviceId);
     },
 
@@ -87,7 +86,7 @@
       RequestVideoReadyCheck : function(name, id) {
           console.log("RequestVideoReadyCheck : " + UTF8ToString(name));
 
-          let nameConverted = UTF8ToString(name);
+          var nameConverted = UTF8ToString(name);
          
           if(nameConverted === "localVideo")
              checkVideoElementReady("localVideo", id);
@@ -106,9 +105,9 @@
 
      SetupWebRTCTexture: function(id, name) {
 
-      let textureName = UTF8ToString(name);
+      var textureName = UTF8ToString(name);
 
-      let videoElement = null;
+      var videoElement = null;
       
       if(textureName === "localVideo")
           videoElement = localVideo;
@@ -176,31 +175,17 @@
         
           function updateTexture() 
           { 
-
-            
-
-            
-                for(let v of videoElements)
+                videoElements.forEach(function (v)
                 {
 
                   if (v.readyState >= v.HAVE_CURRENT_DATA)
                   { 
-                    console.log("video ready" + v.id + "VIDEOELEMENTS :"+ videoElements.length)
+                    console.log("video ready" + v.id + "VIDEOELEMENTS :"+ videoElements.length);
                     texturePaint(v);
                   }
 
-                }
+                });
                   requestAnimationFrame(updateTexture);
-
-                
-
-
-
-
-
-
-            
-
           }
 
 
@@ -210,18 +195,16 @@
                 
                 if (xrManager.xrSession && xrManager.xrSession.isInSession) 
                 {
-                  return xrManager.xrSession.requestAnimationFrame((time, xrFrame) =>
-                  {
+                  return xrManager.xrSession.requestAnimationFrame( function (time, xrFrame) {
                       xrManager.animate(xrFrame);
 
-                          for(let v of videoElements)
-                          {
+                    videoElements.forEach( function(v) {
                            //   console.log("video check" + v.id + "VIDEOELEMENTS :"+ videoElements.length)
                             if (v.readyState >= v.HAVE_CURRENT_DATA) {
-                              console.log("video ready" + v.id + "VIDEOELEMENTS :"+ videoElements.length)
+                              console.log("video ready" + v.id + "VIDEOELEMENTS :"+ videoElements.length);
                               texturePaint(v);
                             }
-                          };
+                          });
                     // if (videoElement.readyState >= videoElement.HAVE_CURRENT_DATA) 
                     //      texturePaint();
 
