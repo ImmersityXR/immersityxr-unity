@@ -1,6 +1,4 @@
-﻿'esversion: 5';
-
-mergeInto(LibraryManager.library, {
+﻿mergeInto(LibraryManager.library, {
     // !!!!!!!!!!! WARNING !!!!!!!!!!!
 
     // DO NOT USE LET ASSIGNMENTS (ie `let x = 1`)

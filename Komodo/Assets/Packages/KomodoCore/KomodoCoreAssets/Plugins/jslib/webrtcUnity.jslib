@@ -1,6 +1,4 @@
-﻿'esversion: 5';
-
-mergeInto(LibraryManager.library, {
+﻿mergeInto(LibraryManager.library, {
      ConnectToWebRTC: function(clientName) {
           
           console.log(clientName + " is connecting to WebRTC.");
