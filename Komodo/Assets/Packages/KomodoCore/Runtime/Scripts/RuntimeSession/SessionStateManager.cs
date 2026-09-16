@@ -137,7 +137,14 @@ namespace Komodo.Runtime
                     interactionType: interactionType
                 ));
 
-                ApplyPosition(entityState.latest);
+                // An entity that was only ever hidden or locked arrives with an
+                // empty `latest` (the relay never saw a position for it), which
+                // deserializes to a default Position — entityType 0 would be
+                // misapplied as a head pose for a nonexistent client 0.
+                if (entityState.latest.clientId != 0 || entityState.latest.entityId != 0)
+                {
+                    ApplyPosition(entityState.latest);
+                }
             }
         }
 

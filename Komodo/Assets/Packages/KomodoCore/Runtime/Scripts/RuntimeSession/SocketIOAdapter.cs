@@ -413,7 +413,35 @@ namespace Komodo.Runtime
 
             SessionStateManager.Instance.SetSessionState(state);
 
+            if (applyCatchupCoroutine != null)
+            {
+                StopCoroutine(applyCatchupCoroutine);
+            }
+
+            applyCatchupCoroutine = StartCoroutine(ApplyCatchupWhenReady());
+        }
+
+        private Coroutine applyCatchupCoroutine;
+
+        // The catch-up usually arrives moments after joining, while models are
+        // still importing. NetworkedGameObjects only register themselves with
+        // NetworkedObjectsManager once GameStateManager.isAssetImportFinished
+        // (see NetworkedGameObject.Start), so applying the state immediately
+        // finds no entities and silently restores nothing. Wait for the import,
+        // plus one frame so the NetworkedGameObject coroutines waiting on the
+        // same flag have run their registrations first.
+        private IEnumerator ApplyCatchupWhenReady ()
+        {
+            if (GameStateManager.IsAlive)
+            {
+                yield return new WaitUntil(() => GameStateManager.Instance.isAssetImportFinished);
+
+                yield return null;
+            }
+
             SessionStateManager.Instance.ApplyCatchup();
+
+            applyCatchupCoroutine = null;
         }
 
         public void OnClientJoined (int client_id)
