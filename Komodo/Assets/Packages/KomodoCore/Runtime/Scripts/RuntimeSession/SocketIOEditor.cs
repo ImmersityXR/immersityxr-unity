@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Komodo.Utilities;
 using SocketIOClient;
 using SocketIOClient.Newtonsoft.Json;
 using UnityEngine;
@@ -25,99 +26,105 @@ namespace Komodo.Runtime
         }
     }
     
-    public static class SocketIOEditor
+    public class SocketIOEditor : SingletonComponent<SocketIOEditor>
     {
-        public static int SUCCESS = 0;
+    public static SocketIOEditor Instance
+    {
+        get { return (SocketIOEditor) _Instance; }
+        set { _Instance = value; }
+    }
+    
+        public int SUCCESS = 0;
 
-        public static int FAILURE = 1;
+        public int FAILURE = 1;
 
-        public static string sessionDetails = @"{""assets"":[{""id"":111550,""name"":""GraceGremer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/8f5fef97-a735-4c2e-8d28-fc3badfe09a3/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111576,""name"":""GarmentSetup1"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/1843c37c-dc40-4520-91cb-ad1cdc70d72e/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111577,""name"":""GarmentSetup2"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/cb3464eb-f96e-48c6-b774-e4dfbdc8ab78/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111578,""name"":""GarmentSetup3"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/e8567627-ade7-493e-a017-e8b1b61e71af/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111579,""name"":""GarmentSetup4"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/9a133a69-c8ba-4cf8-9539-a9a2b2827226/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111580,""name"":""GarmentSetup5"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/0529709a-803e-4f61-86d1-092dabf0c2cb/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111589,""name"":""ShanenHaigler"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/7bb5d74d-39f3-4b3d-aa56-4708b62bda95/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111597,""name"":""Garment O'Donnell"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/ee63a354-b427-4ca3-a2a0-6e230efabe55/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111602,""name"":""GraceGremer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/14bacabd-7f09-4120-b420-ccfa09b23e03/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111604,""name"":""CarleeIhde"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/de622ac8-eabd-4d3a-ab8f-ab56ee415813/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111605,""name"":""CarleeI"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/29394a64-0e31-4824-86f8-133297f9f84c/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111607,""name"":""G-SarahMiranda"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/f3f1442c-f9cc-454b-8b32-8f3597d79272/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111608,""name"":""SarahMirandaMood"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/0b5036d8-37f0-4c32-b65a-7030cef4718d/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111609,""name"":""G-ShanenHaigleer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/5539b18d-ed67-48cb-8a87-164fc161319a/model.glb"",""isWholeObject"":true,""scale"":1}],""app_and_build"":""/test/Brandon-develop-2021-10-19-15xx/"",""course_id"":3,""create_at"":""2021-03-26T01:00:58.000Z"",""description"":""(No description added)"",""end_time"":""2021-03-31T19:03:00.000Z"",""session_id"":141,""session_name"":""SP21 - Critique Group C"",""start_time"":""2021-03-31T18:03:00.000Z"",""users"":[]}";
+        public string sessionDetails = @"{""assets"":[{""id"":111550,""name"":""GraceGremer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/8f5fef97-a735-4c2e-8d28-fc3badfe09a3/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111576,""name"":""GarmentSetup1"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/1843c37c-dc40-4520-91cb-ad1cdc70d72e/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111577,""name"":""GarmentSetup2"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/cb3464eb-f96e-48c6-b774-e4dfbdc8ab78/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111578,""name"":""GarmentSetup3"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/e8567627-ade7-493e-a017-e8b1b61e71af/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111579,""name"":""GarmentSetup4"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/9a133a69-c8ba-4cf8-9539-a9a2b2827226/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111580,""name"":""GarmentSetup5"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/0529709a-803e-4f61-86d1-092dabf0c2cb/model.glb"",""isWholeObject"":false,""scale"":1},{""id"":111589,""name"":""ShanenHaigler"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/7bb5d74d-39f3-4b3d-aa56-4708b62bda95/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111597,""name"":""Garment O'Donnell"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/ee63a354-b427-4ca3-a2a0-6e230efabe55/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111602,""name"":""GraceGremer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/14bacabd-7f09-4120-b420-ccfa09b23e03/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111604,""name"":""CarleeIhde"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/de622ac8-eabd-4d3a-ab8f-ab56ee415813/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111605,""name"":""CarleeI"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/29394a64-0e31-4824-86f8-133297f9f84c/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111607,""name"":""G-SarahMiranda"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/f3f1442c-f9cc-454b-8b32-8f3597d79272/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111608,""name"":""SarahMirandaMood"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/0b5036d8-37f0-4c32-b65a-7030cef4718d/model.glb"",""isWholeObject"":true,""scale"":1},{""id"":111609,""name"":""G-ShanenHaigleer"",""url"":""https://s3.us-east-2.amazonaws.com/vrcat-assets/5539b18d-ed67-48cb-8a87-164fc161319a/model.glb"",""isWholeObject"":true,""scale"":1}],""app_and_build"":""/test/Brandon-develop-2021-10-19-15xx/"",""course_id"":3,""create_at"":""2021-03-26T01:00:58.000Z"",""description"":""(No description added)"",""end_time"":""2021-03-31T19:03:00.000Z"",""session_id"":141,""session_name"":""SP21 - Critique Group C"",""start_time"":""2021-03-31T18:03:00.000Z"",""users"":[]}";
 
-        private static float[] _arrayPointer;
+        private float[] _arrayPointer;
 
-        private static int _relayUpdateSize;
+        private int _relayUpdateSize;
 
-        private static int _posCursor;
+        private int _posCursor;
 
-        public static string InstantiationManagerName = "InstantiationManager";
+        public string InstantiationManagerName = "InstantiationManager";
 
-        public static string NetworkManagerName = "NetworkManager";
+        public string NetworkManagerName = "NetworkManager";
 
-        private static NetworkUpdateHandler _NetworkUpdateHandler;
+        private NetworkUpdateHandler _NetworkUpdateHandler;
 
-        public static SocketIOUnity socket;
+        public SocketIOUnity socket;
 
-        public static void OnReceiveStateCatchUp(string jsonStringifiedData)
+        public void OnReceiveStateCatchUp(string jsonStringifiedData)
         {
 
             Debug.LogError("Need to call SocketIOAdapter.OnReceiveStateCatchup(jsonStringifiedData); here");
         }
 
-        public static int SendStateCatchUpRequest()
+        public int SendStateCatchUpRequest()
         {
             socket.Emit("state", "{ session_id: session_id, client_id: client_id }");
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static void OnJoined(int clientId)
+        public void OnJoined(int clientId)
         {
             ClientSpawnManager.Instance.AddNewClient(clientId);
         }
 
-        public static void OnDisconnected(int clientId)
+        public void OnDisconnected(int clientId)
         {
             ClientSpawnManager.Instance.RemoveClient(clientId);
         }
 
-        public static void OnMicText(string jsonStringifiedData)
+        public void OnMicText(string jsonStringifiedData)
         {
             ClientSpawnManager.Instance.OnReceiveSpeechToTextSnippet(jsonStringifiedData);
         }
 
-        public static int SetChatEventListeners()
+        public int SetChatEventListeners()
         {
             //todo(Brandon): call OnMicText with data
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static void OnDraw(float[] data)
+        public void OnDraw(float[] data)
         {
         }
 
-        public static void InitReceiveDraw(float[] arrayPointer, int size)
+        public void InitReceiveDraw(float[] arrayPointer, int size)
         {
             // int drawCursor = 0;
             //todo(Brandon): call OnDraw with data and pass in drawCursor also
         }
 
-        public static void SendDraw(float[] arrayPointer, int size)
+        public void SendDraw(float[] arrayPointer, int size)
         {
             socket.Emit("draw", arrayPointer.ToString());
         }
 
-        public static int GetClientIdFromBrowser()
+        public int GetClientIdFromBrowser()
         {
             return 456;
         }
 
-        public static int GetSessionIdFromBrowser()
+        public int GetSessionIdFromBrowser()
         {
             return 123;
         }
 
-        public static int GetIsTeacherFlagFromBrowser()
+        public int GetIsTeacherFlagFromBrowser()
         {
             return 1;
         }
 
-        public static void SocketIOSendPosition(float[] array, int size)
+        public void SocketIOSendPosition(float[] array, int size)
         {
             socket.Emit("update", array.ToString());
         }
 
-        public static void SocketIOSendInteraction(int[] array, int size)
+        public void SocketIOSendInteraction(int[] array, int size)
         {
             socket.Emit("interact", array.ToString());
         }
@@ -147,7 +154,7 @@ namespace Komodo.Runtime
                 }
             },
         */
-        public static void InitSocketIOReceivePosition(float[] arrayPointer, int size)
+        public void InitSocketIOReceivePosition(float[] arrayPointer, int size)
         {
             _arrayPointer = arrayPointer;
 
@@ -161,7 +168,7 @@ namespace Komodo.Runtime
          * See the body of InitSocketIOReceivePosition for the relayUpdate
          * event listener.
          */
-        public static void RelayPositionUpdate(float[] data)
+        public void RelayPositionUpdate(float[] data)
         {
 
             if (data.Length + _posCursor > _relayUpdateSize)
@@ -177,17 +184,17 @@ namespace Komodo.Runtime
             _posCursor += data.Length;
         }
 
-        public static void OnInteractionUpdate(float[] data)
+        public void OnInteractionUpdate(float[] data)
         {
         }
 
-        public static void InitSocketIOReceiveInteraction(int[] arrayPointer, int size)
+        public void InitSocketIOReceiveInteraction(int[] arrayPointer, int size)
         {
             // var intCursor = 0;
             //todo(Brandon): call OnInteractionUpdate, passing in data, and updating intCursor
         }
 
-        public static void ToggleCapture(int operation, int session_id)
+        public void ToggleCapture(int operation, int session_id)
         {
             if (operation == 0)
             {
@@ -224,33 +231,33 @@ namespace Komodo.Runtime
                 }
             },
         **/
-        public static string GetSessionDetails()
+        public string GetSessionDetails()
         {
             //TODO -- extend this with a public static boolean to account for multiple code paths above.
 
             return sessionDetails;
         }
 
-        public static void BrowserEmitMessage(string type, string message)
+        public void BrowserEmitMessage(string type, string message)
         {
             KomodoMessageWithMetadata kMessage = new KomodoMessageWithMetadata(123, 456, type, message, DateTime.Now);
 
             socket.Emit("message", kMessage);
         }
 
-        public static int CloseSyncConnection()
+        public int CloseSyncConnection()
         {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int CloseChatConnection()
+        public int CloseChatConnection()
         {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int SetSyncEventListeners()
+        public int SetSyncEventListeners()
         {
             socket.OnConnected += (sender, e) =>
             {
@@ -454,7 +461,7 @@ namespace Komodo.Runtime
         return SocketIOJSLib.SUCCESS;
     }
 
-public static int OpenSyncConnection() {
+public int OpenSyncConnection() {
             //TODO: check the Uri if Valid.
             var uri = new Uri("http://localhost:80/sync");
             socket = new SocketIOUnity(uri, new SocketIOOptions
@@ -471,50 +478,50 @@ public static int OpenSyncConnection() {
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int OpenChatConnection() {
+        public int OpenChatConnection() {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int EnableVRButton () {
+        public int EnableVRButton () {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int JoinSyncSession ()
+        public int JoinSyncSession ()
         {
             socket.Connect();
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int JoinChatSession () {
+        public int JoinChatSession () {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int LeaveSyncSession () {
+        public int LeaveSyncSession () {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static int LeaveChatSession () {
+        public int LeaveChatSession () {
 
             return SocketIOJSLib.SUCCESS;
         }
 
-        public static string SetSocketIOAdapterName (string name)
+        public string SetSocketIOAdapterName (string name)
         {
             return SocketIOAdapter.Instance.gameObject.name;
         }
 
         [ContextMenu("Ping Example")]
-        public static void PingExample () {
+        public void PingExample () {
             SocketIOAdapter.Instance.OnPing();
         }
 
         [ContextMenu("Pong Example")]
-        public static void PongExample () {
+        public void PongExample () {
             SocketIOAdapter.Instance.OnPong(56789);
         }
     }
