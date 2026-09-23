@@ -21,7 +21,7 @@ namespace Komodo.Runtime
         
         private SocketIOEditor socketEditor;
 
-        [SerializeField] private bool useSocketIOClientSimulator;
+        public bool useSocketIOClientSimulator;
 
         private NetworkUpdateHandler netUpdateHandler;
 
@@ -310,8 +310,15 @@ namespace Komodo.Runtime
 
 #if UNITY_WEBGL && !UNITY_EDITOR 
             result = SocketIOJSLib.SendStateCatchUpRequest();
-#else       
-            result = socketSim.SendStateCatchUpRequest();
+#else
+            if (useSocketIOClientSimulator)
+            {
+                result = socketSim.SendStateCatchUpRequest();
+            }
+            else
+            {
+                result = socketEditor.SendStateCatchUpRequest();
+            }
 #endif
             if (result != SocketIOJSLib.SUCCESS)
             {

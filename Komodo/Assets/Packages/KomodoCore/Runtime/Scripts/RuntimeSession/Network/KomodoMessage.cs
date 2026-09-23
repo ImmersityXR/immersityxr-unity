@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Runtime.InteropServices;
+using SocketIOClient;
 
 namespace Komodo.Runtime
 {
@@ -31,14 +32,21 @@ namespace Komodo.Runtime
 #if UNITY_WEBGL && !UNITY_EDITOR
             SocketIOJSLib.BrowserEmitMessage(this.type, this.data);
 #else
-            var socketSim = SocketIOClientSimulator.Instance;
-
-            if (!socketSim)
+            if (SocketIOAdapter.Instance.useSocketIOClientSimulator)
             {
-                Debug.LogWarning("No SocketIOClientSimulator found");
-            }
+                var socketSim = SocketIOClientSimulator.Instance;
 
-            socketSim.BrowserEmitMessage(this.type, this.data);
+                if (!socketSim)
+                {
+                    Debug.LogWarning("No SocketIOClientSimulator found");
+                }
+
+                socketSim.BrowserEmitMessage(this.type, this.data);
+            }
+            else
+            {
+                SocketIOEditor.Instance.SendMessage(this.type, this.data);
+            }
 #endif
         }
     }
