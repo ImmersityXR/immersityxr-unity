@@ -18,6 +18,10 @@ namespace Komodo.Runtime
         private ConnectionAdapter connectionAdapter;
 
         private SocketIOClientSimulator socketSim;
+        
+        private SocketIOEditor socketEditor;
+
+        [SerializeField] private bool useSocketIOClientSimulator;
 
         private NetworkUpdateHandler netUpdateHandler;
 
@@ -30,6 +34,8 @@ namespace Komodo.Runtime
             {
                 Debug.LogError("SocketIOAdapter: No object of type ConnectionAdapter was found in the scene.");
             }
+
+            socketEditor = SocketIOEditor.Instance;
 
             socketSim = SocketIOClientSimulator.Instance;
 
@@ -159,9 +165,17 @@ namespace Komodo.Runtime
 #if UNITY_WEBGL && !UNITY_EDITOR 
             result = SocketIOJSLib.OpenSyncConnection();
 #else
-            result = socketSim.OpenSyncConnection();
-            Instance.OnConnect("0xdeadbeef");
-            Instance.OnServerName("Editor Simulator");
+
+            if (useSocketIOClientSimulator)
+            {
+                result = socketSim.OpenSyncConnection();
+                Instance.OnConnect("0xdeadbeef");
+                Instance.OnServerName("Editor Simulator");
+            }
+            else
+            {
+                result = socketEditor.OpenSyncConnection();
+            }
 #endif
             if (result != SocketIOJSLib.SUCCESS)
             {
@@ -190,8 +204,15 @@ namespace Komodo.Runtime
 
 #if UNITY_WEBGL && !UNITY_EDITOR 
             result = SocketIOJSLib.SetSyncEventListeners();
-#else       
-            result = socketSim.SetSyncEventListeners();
+#else
+            if (useSocketIOClientSimulator)
+            {
+                result = socketSim.SetSyncEventListeners();
+            }
+            else
+            {
+                result = socketEditor.SetSyncEventListeners();
+            }
 #endif
             if (result != SocketIOJSLib.SUCCESS)
             {
