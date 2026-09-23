@@ -241,10 +241,17 @@ namespace Komodo.Runtime
 
 #if UNITY_WEBGL && !UNITY_EDITOR 
             result = SocketIOJSLib.JoinSyncSession();
-#else       
-            result = socketSim.JoinSyncSession();
-            Instance.OnOwnClientJoined(123);
-            Instance.OnSessionInfo("Connection info will appear here.");
+#else
+            if (useSocketIOClientSimulator)
+            {
+                result = socketSim.JoinSyncSession();
+                Instance.OnOwnClientJoined(123);
+                Instance.OnSessionInfo("Connection info will appear here.");
+            }
+            else
+            {
+                result = socketEditor.JoinSyncSession();
+            }
 #endif
             if (result != SocketIOJSLib.SUCCESS)
             {

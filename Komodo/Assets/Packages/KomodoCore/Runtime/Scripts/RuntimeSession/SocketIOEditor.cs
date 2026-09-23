@@ -261,9 +261,9 @@ namespace Komodo.Runtime
         {
             socket.OnConnected += (sender, e) =>
             {
-                int[] joinIds = { 1, 1 };
+                int[] joinIds = { 2, 345 };
                 socket.Emit("join", joinIds);
-
+                
                 string syncSocketId = e.ToString();
             
                 SocketIOAdapter.Instance.OnConnect(syncSocketId);
