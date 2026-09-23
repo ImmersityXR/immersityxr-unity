@@ -329,16 +329,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -650,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4219eb35b5c86f046abd33f6d080ce56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useSocketIOClientSimulator: 0
 --- !u!114 &156889636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,16 +813,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -1215,16 +1220,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -1340,91 +1347,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &419202489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 419202490}
-  - component: {fileID: 419202492}
-  - component: {fileID: 419202491}
-  m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &419202490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -2577548232221058511, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419202489}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_Children: []
-  m_Father: {fileID: 466993261}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &419202491
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7202271454713460447, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419202489}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9e100a1e3bac5bf49b9a7864482dbe71, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &419202492
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -3857212601033656251, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419202489}
-  m_Mesh: {fileID: 2534964839176971238, guid: f2c231c42b3d0e945afab3e47adbd031, type: 3}
 --- !u!1 &426946536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,23 +1528,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9e100a1e3bac5bf49b9a7864482dbe71, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c231c42b3d0e945afab3e47adbd031, type: 3}
---- !u!4 &466993261
+--- !u!4 &466993261 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2c231c42b3d0e945afab3e47adbd031,
     type: 3}
   m_PrefabInstance: {fileID: 466993260}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019250465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1462285361}
-  - {fileID: 419202490}
-  m_Father: {fileID: 95875735}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &537367088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2836976638233774838, guid: 0a1fe9a4692a92b429808dc7c4de1de1,
@@ -1726,16 +1637,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -1912,16 +1825,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -2098,16 +2013,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -2767,16 +2684,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -3407,91 +3326,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1462285360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1462285361}
-  - component: {fileID: 1462285363}
-  - component: {fileID: 1462285362}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1462285361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -5477749408508380018, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462285360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_Children: []
-  m_Father: {fileID: 466993261}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1462285362
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462285360}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b88e1727a1d688b4bbf5e9813e4d9611, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1462285363
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5334037119324981776, guid: f2c231c42b3d0e945afab3e47adbd031,
-    type: 3}
-  m_PrefabInstance: {fileID: 466993260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462285360}
-  m_Mesh: {fileID: -5495902117074765545, guid: f2c231c42b3d0e945afab3e47adbd031, type: 3}
 --- !u!1 &1467436398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4554182674405035392, guid: 0a1fe9a4692a92b429808dc7c4de1de1,
@@ -3758,16 +3592,18 @@ MonoBehaviour:
     the settings.
 
 
-    First, you want to teleport two times. To teleport, press the thumb stick on your
-    controllers, either right or left.
+    First, you want to teleport two times. To teleport, press
+    the thumb stick on your controllers, either right or left.
 
 
-    Second, call out the menu and calibrate your height. To call out the menu, press
-    the upper button (Y or B) on your controllers once. Then press the Setting tab
-    and select the Calibrate Height button.
+    Second, call
+    out the menu and calibrate your height. To call out the menu, press the upper
+    button (Y or B) on your controllers once. Then press the Setting tab and select
+    the Calibrate Height button.
 
 
-    Once the settings are finished, this cube will disappear.
+    Once the settings are finished, this cube
+    will disappear.
 
 
 '
@@ -4317,23 +4153,12 @@ MonoBehaviour:
   sessionAndBuildName: {fileID: 0}
   cursor: {fileID: 0}
   cursorGraphic: {fileID: 0}
---- !u!1 &2019250465
+--- !u!1 &2019250465 stripped
 GameObject:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2c231c42b3d0e945afab3e47adbd031,
     type: 3}
   m_PrefabInstance: {fileID: 466993260}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 466993261}
-  m_Layer: 0
-  m_Name: blinderBoxHelper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &2065548490
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,6 +5348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098255269838762687, guid: 0a1fe9a4692a92b429808dc7c4de1de1,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4291063103263165930, guid: 0a1fe9a4692a92b429808dc7c4de1de1,
         type: 3}
